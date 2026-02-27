@@ -203,7 +203,7 @@ def box_plot():
     labels = ['Group 1', 'Group 2', 'Group 3', 'Group 4']
     
     plt.figure(figsize=(10, 6))
-    box = plt.boxplot(data, labels=labels, patch_artist=True,
+    box = plt.boxplot(data, tick_labels=labels, patch_artist=True,
                       notch=True, showmeans=True)
     
     # Color boxes

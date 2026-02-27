@@ -32,7 +32,7 @@ def distribution_plot():
     
     # KDE Plot
     plt.subplot(1, 2, 2)
-    sns.kdeplot(data, shade=True, color='coral')
+    sns.kdeplot(data, fill=True, color='coral')
     plt.title('Kernel Density Estimate', fontsize=14, fontweight='bold')
     plt.xlabel('Value')
     plt.ylabel('Density')
@@ -83,13 +83,13 @@ def box_violin_plots():
     fig, axes = plt.subplots(1, 2, figsize=(14, 6))
     
     # Box plot
-    sns.boxplot(data=data, x='Category', y='Value', ax=axes[0], palette='Set2')
+    sns.boxplot(data=data, x='Category', y='Value', ax=axes[0], hue='Category', palette='Set2', legend=False)
     axes[0].set_title('Box Plot by Category', fontsize=14, fontweight='bold')
     axes[0].set_xlabel('Category', fontsize=12)
     axes[0].set_ylabel('Value', fontsize=12)
     
     # Violin plot
-    sns.violinplot(data=data, x='Category', y='Value', ax=axes[1], palette='Set3')
+    sns.violinplot(data=data, x='Category', y='Value', ax=axes[1], hue='Category', palette='Set3', legend=False)
     axes[1].set_title('Violin Plot by Category', fontsize=14, fontweight='bold')
     axes[1].set_xlabel('Category', fontsize=12)
     axes[1].set_ylabel('Value', fontsize=12)
@@ -229,7 +229,7 @@ def categorical_plot():
     fig, axes = plt.subplots(2, 2, figsize=(14, 12))
     
     # Bar plot
-    sns.barplot(data=data, x='Category', y='Value', ax=axes[0, 0], palette='pastel', ci=95)
+    sns.barplot(data=data, x='Category', y='Value', ax=axes[0, 0], hue='Category', palette='pastel', errorbar=('ci', 95), legend=False)
     axes[0, 0].set_title('Bar Plot with Confidence Interval', fontsize=12, fontweight='bold')
     
     # Point plot
@@ -237,11 +237,11 @@ def categorical_plot():
     axes[0, 1].set_title('Point Plot with Categories', fontsize=12, fontweight='bold')
     
     # Strip plot
-    sns.stripplot(data=data, x='Category', y='Value', ax=axes[1, 0], palette='muted', alpha=0.6)
+    sns.stripplot(data=data, x='Category', y='Value', ax=axes[1, 0], hue='Category', palette='muted', alpha=0.6, legend=False)
     axes[1, 0].set_title('Strip Plot', fontsize=12, fontweight='bold')
     
     # Swarm plot
-    sns.swarmplot(data=data, x='Category', y='Value', ax=axes[1, 1], palette='bright', size=3)
+    sns.swarmplot(data=data, x='Category', y='Value', ax=axes[1, 1], hue='Category', palette='bright', size=3, legend=False)
     axes[1, 1].set_title('Swarm Plot', fontsize=12, fontweight='bold')
     
     plt.suptitle('Categorical Plots Comparison', fontsize=16, fontweight='bold', y=1.00)
